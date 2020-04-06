@@ -1,35 +1,55 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 
 
 class UserRequest extends Component {
     constructor(props) {
-        super(props); 
-
+        super(props);
+        this.state = {
+            inputText: "",
+            savedTexts: []
+        }
 
     }
     handleSubmit = (event) => {
         event.preventDefault()
+        this.setState({
+            savedTexts: this.state.savedTexts.concat([this.state.inputText])
+        })
     }
-    handleInputChange = () => {
 
+    handleInputChange = (event) => {
+        this.setState({
+            inputText: event.target.value
+        });
     };
-    submit = () =>  {
-
-    };
-    render (){
+    
+    render() {
         return (
-        <div className="box box__big base">
-            <form id="submitForm" onSubmit={this.handleSubmit}>
-              <label for="submit-request">Submit Request</label>
-              <input type="text" name="submit-request" placeholder="type here"/>
-              <button onclick={this.submit}>Ti In</button>
-            </form>
-        </div>
+            <div>
+                <div className="box box__big base">
+                    <form id="submitForm" onSubmit={this.handleSubmit}>
+                        <label >Submit Request
+                   <input type="text" name="submit-inputText" placeholder="type here" onChange={this.handleInputChange} value={this.state.inputText} />
+                        </label>
+                        <br />
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <div>
+                    {this.state.savedTexts.map(savedText => {
+                        return ( 
+                            <div>
+                                {savedText}
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+
         )
     }
+   
 };
-
-
 
 
 export default UserRequest; 
