@@ -13,8 +13,22 @@ class UserRequest extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.setState({
-            savedTexts: this.state.savedTexts.concat([this.state.inputText])
+            savedTexts: this.state.savedTexts.concat([this.state.inputText])          
         })
+        fetch('http://localhost:5000/services', {
+  method: 'POST', 
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(this.state),
+})
+.then((response) => response.json())
+.then((savedText) => {
+  console.log('Success:', savedText);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
     }
 
     handleInputChange = (event) => {
@@ -38,7 +52,7 @@ class UserRequest extends Component {
                 <div>
                     {this.state.savedTexts.map(savedText => {
                         return ( 
-                            <div>
+                            <div className="savedRequest">
                                 {savedText}
                             </div>
                         )
