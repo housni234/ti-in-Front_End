@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    color: #4286f4;
+    margin-top: 30px;
+    margin-bottom: 60px;
+  }
+  #main {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+  input {
+    width: 19%;
+    margin: 9px;
+    padding: 7px 9px;
+    border-radius: 40px;
+    border: 1px solid #000000;
+    /* box-shadow: 1px 0.5px #888888; */
+    font-size: -14px;
+    left: 1320px;
+    top: 37px;
+  }
+  
+  button {
+    padding: 5px 9px;
+    width: 6%;
+    border-radius: 40px;
+    background-color: #4286f4;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 15px;
+    left: 1312px;
+  }
+  #meals-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+    margin-top: 60px;
+    border: 0.1px solid #4286f4;
+  }
+  .single-meal {
+    box-shadow: 1px 0.5px #4286f4;
+    margin: 10px;
+  }
+  .single-meal img{
+      width: 50%;
+  }
+  
