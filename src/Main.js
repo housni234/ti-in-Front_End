@@ -3,6 +3,7 @@ import UserRequest from "./UserRequest";
 import Search from "./Search";
 import "./main.css";
 import TieInBar from "./TieInBar";
+import "./Search_bar.css"
 
 
 function Main() {

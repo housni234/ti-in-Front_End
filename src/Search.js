@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "./Search_bar.css";
+import "./index.css";
+
 
 class Search extends Component {
   state = {
@@ -14,26 +15,25 @@ class Search extends Component {
   handleSearch = () => {
     this.makeApiCall(this.state.searchValue);
   };
- 
+
   makeApiCall = searchInput => {
-   var searchUrl = `http://localhost:5000/hashtags`;
+    var searchUrl = `http://localhost:5000/hashtags`;
     fetch(searchUrl)
       .then(response => {
 
         console.log(response);
         return response.json();
-    
+
       })
       .then(jsonData => {
         this.setState({ meals: jsonData.meals });
       });
-      
+
   };
 
   render() {
     return (
-      <div id="main">
-        <h1>TIE_IN </h1>
+      <div className="searchBar base">
         <input
           name="text"
           type="text"
@@ -41,7 +41,8 @@ class Search extends Component {
           onChange={event => this.handleOnChange(event)}
           value={this.state.searchValue}
         />
-        <button onClick={this.handleSearch}>Search</button>
+        <button className="search-btn" onClick={this.handleSearch}>Search</button>
+        
         {this.state.meals ? (
           <div id="meals-container">
             {this.state.meals.map((meal, index) => (
@@ -52,8 +53,8 @@ class Search extends Component {
             ))}
           </div>
         ) : (
-          <p>Try searching for a Username</p>
-        )}
+            <p>Try searching for a Username</p>
+          )}
       </div>
     );
   }

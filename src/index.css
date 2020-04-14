@@ -1,47 +1,57 @@
-
 body{
   background-color: rgba(140, 141, 161, 0.425);
 }
+
+/*the main page grids layout*/
+.mainContainer{
+display:grid;
+grid-template-columns: 1fr 3fr 2fr;
+grid-column-gap:30px;
+}
+
+/*Tie-in bar gids layout*/
 .container{
-  display:grid;
-  grid-template-columns: 1fr 3fr 2fr;
-  grid-column-gap:30px;
-}
+display: flex;
+flex-direction: column;
+}  
 
-.Tie-in{
-  display: grid;
-  height: 700px;
-  
-}
-
+/*set the tie-in and search bars */
 .base {
   background-color: #fff;
   padding: 15px;
   height: 700px;
 }
+
+/*search bar layout
+#main{
+  background-color: #fff;
+  padding: 15px;
+  height: 700px;
+}*/
+
+/*the marging between the input request box and saved text box*/
 .box {
   border-radius: 4px;
   margin-bottom: 20px;
 }
+
+/* request box layout*/
 .box__big {
   height: 220px;
   display:flex;
   flex-direction: column;
   justify-content: stretch;
 }
+/*
 .box__small {
   height: 180px;
   padding: 11px 14px;
 }
+*/
 
-.sidebar{
-  display: flex;
-  flex-direction: column;
-
-}
-
+/*request box input*/
 .box__big input[type="text"] {
-  width: 550px;
+  width: 450px;
   height: 120px;
   padding: 15px;
   border: 1px solid #dddddd;
@@ -50,8 +60,8 @@ body{
   font-size:17px;
   margin-left: 10px;
 }
-
-.box__big input[type="submit"] {
+/*request box button*/
+.box__big button[type="submit"] {
   width: 20%;
   height: 6px;
   padding: 15px;
@@ -61,23 +71,19 @@ body{
   color: #ffffff;
   line-height:1px;
   border-radius: 15px;
-  margin-left: 445px;
+  margin-left: 440px;
 }
 
-#searchButton {
-  width: 50px;
-  height: 30px;
-  background-color: #3681cc;
-  border-radius: 15px;
-}
 
-.siderbar_2 input[type="text"] {
-  width: 300px;
-  height: 24px;
+/**/
+.searchBar input[type="text"] {
+  width: 200px;
+  height: 20px;
   background-color: #92b1cf;
 }
 
 
+/*flexbox setting of the profile and services links in tie-in bar*/
 .links-container{
     display: flex;
     flex-direction: column;
@@ -86,7 +92,6 @@ body{
     padding-bottom: 12px;
     margin-top: 60px;
     padding-top: 12px;
-    
 }
 
 a {
@@ -95,11 +100,37 @@ a {
     padding-bottom: 20px;
     padding-top: 20px;
 }
+
+/*saved request text box*/
 .savedRequest{
-  width: 300px;
+  width: 600px;
   height: 100px;
-  background-color:yellow;
-  border:1px solid black;
+  background-color:white;
+  border:1px solid#d3d3d3;
   padding: 1px;
-  margin-left: 450px;
+  border-radius: 4px;
+}
+/*saearch bar input
+.searchBar input[type="submit"] {
+  width: 19px;
+  margin: 9px;
+  padding: 7px 9px;
+  border-radius: 40px;
+  border: 1px solid #000000;
+  box-shadow: 1px 0.5px #888888; 
+  font-size: 14px;
+  left: 1320px;
+  top: 37px;
+}*/
+
+.search-btn{
+  width: 20%;
+  height: 6px;
+  padding: 15px;
+  background-color: #3681cc;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #ffffff;
+  line-height:1px;
+  border-radius: 15px;
 }

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-
+import "./index.css";
 
 
 class UserRequest extends Component {
@@ -43,9 +43,10 @@ class UserRequest extends Component {
             <div>
                 <div className="box box__big base">
                     <form id="submitForm" onSubmit={this.handleSubmit}>
-                        <label >Submit Request
+                        <label >Submit Request</label>
+                        <br/>
                    <input type="text" name="submit-inputText" placeholder="type here" onChange={this.handleInputChange} value={this.state.inputText} />
-                        </label>
+                        
                         <br />
                         <button type="submit">Submit</button>
                     </form>

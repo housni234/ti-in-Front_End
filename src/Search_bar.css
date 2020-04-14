@@ -23,8 +23,8 @@
     left: 1320px;
     top: 37px;
   }
-  
-  button {
+  /*
+  .search-btn {
     padding: 5px 9px;
     width: 6%;
     border-radius: 40px;
@@ -33,7 +33,7 @@
     cursor: pointer;
     font-size: 15px;
     left: 1312px;
-  }
+  }*/
   #meals-container {
     display: grid;
     grid-template-columns: auto auto auto;

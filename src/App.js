@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Search_bar.css"
 import Main from "./Main";
 
 function App() {
