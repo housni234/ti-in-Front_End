@@ -21,7 +21,7 @@ class UserRequest extends Component {
   headers: {
     'Content-Type': 'application/json',
   },
-  body: JSON.stringify(this.state),
+  body: JSON.stringify({ content: this.state.inputText }),
 })
 .then((response) => response.json())
 .then((savedText) => {
