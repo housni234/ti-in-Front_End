@@ -5,7 +5,7 @@ import "./index.css";
 class Search extends Component {
   state = {
     searchValue: "",
-    meals: []
+    services: []
   };
 
   handleOnChange = event => {
@@ -17,7 +17,7 @@ class Search extends Component {
   };
 
   makeApiCall = searchInput => {
-    var searchUrl = `http://localhost:5000/hashtags`;
+    var searchUrl = `http://localhost:5000/services?text=u:ward`;
     fetch(searchUrl)
       .then(response => {
 
@@ -26,7 +26,9 @@ class Search extends Component {
 
       })
       .then(jsonData => {
-        this.setState({ meals: jsonData.meals });
+        console.log(jsonData);
+        this.setState({ services : jsonData });
+
       });
 
   };
@@ -43,12 +45,12 @@ class Search extends Component {
         />
         <button className="search-btn" onClick={this.handleSearch}>Search</button>
         
-        {this.state.meals ? (
-          <div id="meals-container">
-            {this.state.meals.map((meal, index) => (
-              <div className="single-meal" key={index}>
-                <h2>{meal.strMeal}</h2>
-                <img src={meal.strMealThumb} alt="meal-thumbnail" />
+        {this.state.services ? (
+          <div id="services-container">
+            {this.state.services.map((service, index) => (
+              <div className="single-service" key={index}>
+                <h2>{service.content}</h2>
+
               </div>
             ))}
           </div>
