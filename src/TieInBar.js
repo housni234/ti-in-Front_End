@@ -10,7 +10,7 @@ class TieInBar extends Component {
                     <h1>TIE-IN</h1>
                     <div className="bar-container">
                         <div className="links-container">
-                            <a href="">Profile</a>
+                            <a href="Profile.js">Profile</a>
                             <a href="">Services</a>
                         </div>
                     </div>
