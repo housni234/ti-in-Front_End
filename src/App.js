@@ -3,7 +3,7 @@ import "./Search_bar.css"
 import Main from "./Main";
 import Profile from "./Profile";
 import "./Navbar"
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
   return (

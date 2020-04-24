@@ -7,15 +7,15 @@ import "./Search_bar.css"
 
 
 function Main() {
-        return (
-          <>
-          <div className="mainContainer">
-            <TieInBar/>
-            <UserRequest />
-            <Search />
-           </div>
-            
-          </>
-        );
-      }
+  return (
+    <>
+      <div className="mainContainer">
+        <TieInBar />
+        <UserRequest />
+        <Search />
+      </div>
+
+    </>
+  );
+}
 export default Main;

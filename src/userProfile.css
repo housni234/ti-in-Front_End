@@ -1,0 +1,56 @@
+/*my profile component*/
+.userProfile{
+    background-color: white;
+}
+
+.sent-request{
+    background-color: rgb(229, 229, 238);
+}
+
+/*my profile bar and sent request bar*/
+.myProfile-bar{
+    display: flex;
+    width: 600px;
+    height: 40px;
+    border: 1px solid black;
+    padding: 8px;
+    margin: 20px;
+    background-color: black;  
+}
+/*text inside my profile bar*/
+p{
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    margin: auto; 
+    font-size: medium;   
+}
+/*profile image*/
+img {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    margin-left: 40px;
+  }
+/*profile infos*/
+  .infos{
+      display: flex;
+      flex-direction: row;
+  }
+
+  .email{
+    margin-left: 350px;  
+    margin-top: 90px;
+}
+
+.userName{
+    font-size: x-large;
+}
+
+.profile-component {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap:30px;
+}

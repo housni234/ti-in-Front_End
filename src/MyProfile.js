@@ -1,24 +1,15 @@
 import React, {Component} from "react";
+import UserProfile from "./UserProfile";
+import SentRequest from "./SentRequest";
 
-class MyProfile extends Component {
-    render(){
-        return (
-            <div>hello</div>
-            
-            
-
-        )
-    }
-};
-
-
-
-
-
-
-
-
-
+function MyProfile() {
+    return (
+        <div className="profile-component">
+            <UserProfile/>
+            <SentRequest/>
+        </div>
+    )
+}
 
 
 

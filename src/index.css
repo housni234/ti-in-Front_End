@@ -59,6 +59,7 @@ flex-direction: column;
   box-sizing:border-box;
   font-size:17px;
   margin-left: 10px;
+  outline: none;
 }
 /*request box button*/
 .box__big button[type="submit"] {
@@ -80,6 +81,7 @@ flex-direction: column;
   width: 200px;
   height: 20px;
   background-color: #92b1cf;
+  outline: none;
 }
 
 
