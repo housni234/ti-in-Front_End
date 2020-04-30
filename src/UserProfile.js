@@ -14,9 +14,7 @@ class UserProfile extends Component {
                 email: "undefined email",
                 isInEditMode: false
             }
-        }
-        this.newName = "";
-        this.newEmail = "";
+        };
     };
 
     changeEditMode = () =>  {
