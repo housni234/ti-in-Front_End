@@ -26,7 +26,7 @@ class UserProfile extends Component {
 
     };
 
-    componentWillMount() {
+    componentDidMount() {
         let userid = this.state.data.id;
         fetch(`http://localhost:5000/users/${userid}`)
             .then((response) => response.json())
@@ -39,7 +39,7 @@ class UserProfile extends Component {
     }
 
     render() {
-        
+
         return (
 
             <div className="userProfile">
@@ -55,7 +55,7 @@ class UserProfile extends Component {
                             <div className="userName">{this.state.data.name}</div>
                         ) : (
                                 <input type="text" defaultValue={this.state.data.name} ref={node => { this.newName = node }}/>
-                               
+
                             )}
                             {!this.state.isInEditMode ? (
                         <div className="email">{this.state.data.email}</div>
@@ -63,7 +63,7 @@ class UserProfile extends Component {
                             <input type="text" defaultValue={this.state.data.email} ref={node => { this.newEmail = node }} />
                         )}
                     </div>
-                    
+
                 </div>
             </div>
 
