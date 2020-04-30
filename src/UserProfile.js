@@ -8,12 +8,10 @@ class UserProfile extends Component {
         super();
 
         this.state = {
-            data: {
-                id: 2,
-                name: "undefined user name",
-                email: "undefined email",
-                isInEditMode: false
-            }
+            id: 2,
+            name: "undefined user name",
+            email: "undefined email",
+            isInEditMode: false
         };
     };
 
@@ -23,28 +21,23 @@ class UserProfile extends Component {
 
     updateName = e => {
         this.setState({
-            data: {
-                ...this.state.data,
-                name: e.target.value
-            }
+            name: e.target.value
         });
     };
 
     updateEmail = e => {
         this.setState({
-            data: {
-                ...this.state.data,
-                email: e.target.value
-            }
+            email: e.target.value
         });
     }
 
     componentDidMount() {
-        let userid = this.state.data.id;
+        let userid = this.state.id;
         fetch(`http://localhost:5000/users/${userid}`)
             .then((response) => response.json())
             .then((responseJson) => {
-                this.setState({ data: responseJson })
+                const { name, email } = responseJson;
+                this.setState({ name, email })
             })
             .catch((error) => {
                 console.error(error);
@@ -52,7 +45,7 @@ class UserProfile extends Component {
     }
 
     render() {
-        const { name, email } = this.state.data;
+        const { name, email } = this.state;
 
         return (
 
