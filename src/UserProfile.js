@@ -13,18 +13,14 @@ class UserProfile extends Component {
                 name: "undefined user name",
                 email: "undefined email",
                 isInEditMode: false
-            },
-        text:"Edit"
+            }
         }
         this.newName = "";
         this.newEmail = "";
     };
 
-    changeEditMode=() =>  {
-       this.setState({ isInEditMode: !this.state.isInEditMode })
-       let text=this.state.isInEditMode ? "Edit" : "Save";
-       this.setState({text:text})
-
+    changeEditMode = () =>  {
+        this.setState({ isInEditMode: !this.state.isInEditMode });
     };
 
     updateName = e => {
@@ -66,7 +62,7 @@ class UserProfile extends Component {
                 <div className="myProfile-bar">
                     <p>My Profile</p>
                 </div>
-                <button className="edit-save-btn" onClick={this.changeEditMode}>{this.state.text}</button>
+                <button className="edit-save-btn" onClick={this.changeEditMode}>{this.state.isInEditMode ? "Save" : "Edit"}</button>
 
                 <div className="infos">
                     <img src={meme} alt="image user" />
