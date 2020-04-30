@@ -1,37 +1,43 @@
 import React, { Component } from "react";
 import "./userProfile.css";
 import meme from "./meme.jpg";
+import ProfileField from "./ProfileField"
 
 class UserProfile extends Component {
     constructor() {
         super();
 
         this.state = {
-            data: {
-                id: 2,
-                name: "undefined user name",
-                email: "undefined email",
-                isInEditMode: false
-            },
-        text:"Edit"
-        }
-        this.newName = "";
-        this.newEmail = "";
+            id: 2,
+            name: "undefined user name",
+            email: "undefined email",
+            isInEditMode: false
+        };
     };
 
-    changeEditMode=() =>  {
-       this.setState({ isInEditMode: !this.state.isInEditMode })
-       let text=this.state.isInEditMode ? "Edit" : "Save";
-       this.setState({text:text})
-
+    changeEditMode = () =>  {
+        this.setState({ isInEditMode: !this.state.isInEditMode });
     };
 
-    componentWillMount() {
-        let userid = this.state.data.id;
+    updateName = e => {
+        this.setState({
+            name: e.target.value
+        });
+    };
+
+    updateEmail = e => {
+        this.setState({
+            email: e.target.value
+        });
+    }
+
+    componentDidMount() {
+        let userid = this.state.id;
         fetch(`http://localhost:5000/users/${userid}`)
             .then((response) => response.json())
             .then((responseJson) => {
-                this.setState({ data: responseJson })
+                const { name, email } = responseJson;
+                this.setState({ name, email })
             })
             .catch((error) => {
                 console.error(error);
@@ -39,35 +45,24 @@ class UserProfile extends Component {
     }
 
     render() {
-        
+        const { name, email } = this.state;
+
         return (
 
             <div className="userProfile">
                 <div className="myProfile-bar">
                     <p>My Profile</p>
                 </div>
-                <button className="edit-save-btn" onClick={this.changeEditMode}>{this.state.text}</button>
+                <button className="edit-save-btn" onClick={this.changeEditMode}>{this.state.isInEditMode ? "Save" : "Edit"}</button>
 
                 <div className="infos">
                     <img src={meme} alt="image user" />
                     <div>
-                        {!this.state.isInEditMode ? (
-                            <div className="userName">{this.state.data.name}</div>
-                        ) : (
-                                <input type="text" defaultValue={this.state.data.name} ref={node => { this.newName = node }}/>
-                               
-                            )}
-                            {!this.state.isInEditMode ? (
-                        <div className="email">{this.state.data.email}</div>
-                        ) : (
-                            <input type="text" defaultValue={this.state.data.email} ref={node => { this.newEmail = node }} />
-                        )}
+                        <ProfileField value={name} onChange={this.updateName} isEditing={this.state.isInEditMode} />
+                        <ProfileField value={email} onChange={this.updateEmail} isEditing={this.state.isInEditMode} />
                     </div>
-                    
                 </div>
             </div>
-
-
         )
     }
 }
