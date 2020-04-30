@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./userProfile.css";
 import meme from "./meme.jpg";
+import ProfileField from "./ProfileField"
 
 class UserProfile extends Component {
     constructor() {
@@ -26,6 +27,24 @@ class UserProfile extends Component {
 
     };
 
+    updateName = e => {
+        this.setState({
+            data: {
+                ...this.state.data,
+                name: e.target.value
+            }
+        });
+    };
+
+    updateEmail = e => {
+        this.setState({
+            data: {
+                ...this.state.data,
+                email: e.target.value
+            }
+        });
+    }
+
     componentDidMount() {
         let userid = this.state.data.id;
         fetch(`http://localhost:5000/users/${userid}`)
@@ -39,6 +58,7 @@ class UserProfile extends Component {
     }
 
     render() {
+        const { name, email } = this.state.data;
 
         return (
 
@@ -51,23 +71,11 @@ class UserProfile extends Component {
                 <div className="infos">
                     <img src={meme} alt="image user" />
                     <div>
-                        {!this.state.isInEditMode ? (
-                            <div className="userName">{this.state.data.name}</div>
-                        ) : (
-                                <input type="text" defaultValue={this.state.data.name} ref={node => { this.newName = node }}/>
-
-                            )}
-                            {!this.state.isInEditMode ? (
-                        <div className="email">{this.state.data.email}</div>
-                        ) : (
-                            <input type="text" defaultValue={this.state.data.email} ref={node => { this.newEmail = node }} />
-                        )}
+                        <ProfileField value={name} onChange={this.updateName} isEditing={this.state.isInEditMode} />
+                        <ProfileField value={email} onChange={this.updateEmail} isEditing={this.state.isInEditMode} />
                     </div>
-
                 </div>
             </div>
-
-
         )
     }
 }
