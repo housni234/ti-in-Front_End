@@ -1,6 +1,8 @@
 /*my profile component*/
 .userProfile{
     background-color: white;
+    height: 200px;
+    margin-left: 20px;
 }
 
 .sent-request{
@@ -10,7 +12,15 @@
 /*my profile bar and sent request bar*/
 .myProfile-bar{
     display: flex;
-    width: 600px;
+    height: 40px;
+    border: 1px solid black;
+    padding: 8px;
+    margin: 20px;
+    background-color: black;  
+}
+
+.sent-request-bar{                 
+    display: flex;
     height: 40px;
     border: 1px solid black;
     padding: 8px;
@@ -25,7 +35,7 @@ p{
     margin: auto; 
     font-size: medium;   
 }
-/*profile image*/
+/*profile image
 img {
     border: 1px solid black;
     border-radius: 4px;
@@ -33,30 +43,34 @@ img {
     width: 100px;
     height: 100px;
     margin-left: 40px;
-  }
+  }*/
+
 /*profile infos*/
   .infos{
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
+      
   }
 
   .email{
-    margin-left: 350px;  
-    margin-top: 90px;
+    margin-top: 50px;
+    margin-right: 20px;    
 }
 
 .userName{
-    font-size: x-large;
+    font-size: xx-large;
+    
 }
 
 .profile-component {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 50% 45%;
     grid-column-gap:30px;
 }
 
 .edit-save-btn{
-    margin-left: 550px;
+    margin-left: 540px;
     width: 70px;
     height: 6px;
     padding: 15px;
@@ -66,4 +80,45 @@ img {
     color: #ffffff;
     line-height:1px;
     border-radius: 15px;
+}
+
+/*profileField component input*/
+input {
+    width: 120px;
+}
+
+.infos2 {
+    background-color: rgb(255, 255, 255);
+    height: 230px;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    color:white ;
+    height: 40px;
+    padding: 8px;
+    margin: 20px;
+    background-color:#3681cc; 
+    border-radius: 5px;
+}
+.services {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    height: 40px;
+    padding: 8px;
+    margin: 20px;
+    background-color:#3681cc; 
+    border-radius: 5px;
+}
+.points {
+    display: flex;
+    flex-direction: column;
+    color:white;
+    height: 40px;
+    padding: 8px;
+    margin: 20px;
+    background-color:#3681cc; 
+    border-radius: 5px;
 }

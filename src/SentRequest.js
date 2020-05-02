@@ -5,7 +5,7 @@ class SentRequest extends Component {
     render() {
         return (
             <div className="sent-request">
-                <div className="myProfile-bar">
+                <div className="sent-request-bar">
                     <p>Sent Requests</p>
                 </div>
                 <div>

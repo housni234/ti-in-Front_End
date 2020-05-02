@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./userProfile.css";
 
 class ProfileField extends Component {
   render() {

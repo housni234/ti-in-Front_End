@@ -15,8 +15,18 @@ class UserProfile extends Component {
         };
     };
 
-    changeEditMode = () =>  {
+    changeEditMode = () => {
+        if (this.state.isInEditMode) {
+            const requestOptions = {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: "testName01", email: "testEmail01", id: 2 })
+            };
+            fetch('http://localhost:5000/users', requestOptions);
+
+        }
         this.setState({ isInEditMode: !this.state.isInEditMode });
+
     };
 
     updateName = e => {
@@ -54,13 +64,18 @@ class UserProfile extends Component {
                     <p>My Profile</p>
                 </div>
                 <button className="edit-save-btn" onClick={this.changeEditMode}>{this.state.isInEditMode ? "Save" : "Edit"}</button>
-
                 <div className="infos">
-                    <img src={meme} alt="image user" />
-                    <div>
+                    <div className="userName">
                         <ProfileField value={name} onChange={this.updateName} isEditing={this.state.isInEditMode} />
+                    </div>
+                    <div className="email">
                         <ProfileField value={email} onChange={this.updateEmail} isEditing={this.state.isInEditMode} />
                     </div>
+                </div>
+                <div className="infos2">
+                    <div className="posts">posts</div>
+                    <div className="services">services</div>
+                    <div className="points">points</div>
                 </div>
             </div>
         )
