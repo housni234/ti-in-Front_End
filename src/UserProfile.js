@@ -8,19 +8,23 @@ class UserProfile extends Component {
         super();
 
         this.state = {
-            id: 2,
+            id: 4,
             name: "undefined user name",
             email: "undefined email",
+            points: 0,
+            average_rating: 0,
             isInEditMode: false
         };
     };
+
+
 
     changeEditMode = () => {
         if (this.state.isInEditMode) {
             const requestOptions = {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name: "testName01", email: "testEmail01", id: 2 })
+                body: JSON.stringify({ name: "testName01", email: "testEmail01", id: this.state.id })
             };
             fetch('http://localhost:5000/users', requestOptions);
 
@@ -34,10 +38,16 @@ class UserProfile extends Component {
             name: e.target.value
         });
     };
-
     updateEmail = e => {
         this.setState({
             email: e.target.value
+        });
+    };
+
+
+    updatePoints = e => {
+        this.setState({
+            points: e.target.value
         });
     }
 
@@ -46,8 +56,8 @@ class UserProfile extends Component {
         fetch(`http://localhost:5000/users/${userid}`)
             .then((response) => response.json())
             .then((responseJson) => {
-                const { name, email } = responseJson;
-                this.setState({ name, email })
+                const { name, email, points, average_rating } = responseJson;
+                this.setState({ name, email, points, average_rating })
             })
             .catch((error) => {
                 console.error(error);
@@ -68,6 +78,7 @@ class UserProfile extends Component {
                     <div className="userName">
                         <ProfileField value={name} onChange={this.updateName} isEditing={this.state.isInEditMode} />
                     </div>
+                    <div>{this.state.average_rating}</div>
                     <div className="email">
                         <ProfileField value={email} onChange={this.updateEmail} isEditing={this.state.isInEditMode} />
                     </div>
@@ -75,7 +86,7 @@ class UserProfile extends Component {
                 <div className="infos2">
                     <div className="posts">posts</div>
                     <div className="services">services</div>
-                    <div className="points">points</div>
+                    <div className="points">{this.state.points}</div>
                 </div>
             </div>
         )
