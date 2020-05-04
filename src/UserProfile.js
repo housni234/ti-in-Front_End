@@ -5,10 +5,10 @@ import ProfileField from "./ProfileField"
 
 class UserProfile extends Component {
     constructor() {
-        super();
+        super()
 
         this.state = {
-            id: 4,
+            id: 3,
             name: "undefined user name",
             email: "undefined email",
             points: 0,
@@ -38,16 +38,22 @@ class UserProfile extends Component {
             name: e.target.value
         });
     };
+
     updateEmail = e => {
         this.setState({
             email: e.target.value
         });
     };
 
-
     updatePoints = e => {
         this.setState({
             points: e.target.value
+        });
+    }
+
+    updateAverageRating = e => {
+        this.setState({
+            average_rating: e.target.value
         });
     }
 
@@ -78,15 +84,13 @@ class UserProfile extends Component {
                     <div className="userName">
                         <ProfileField value={name} onChange={this.updateName} isEditing={this.state.isInEditMode} />
                     </div>
-                    <div>{this.state.average_rating}</div>
+                    <div>rating: {this.state.average_rating}</div>
                     <div className="email">
                         <ProfileField value={email} onChange={this.updateEmail} isEditing={this.state.isInEditMode} />
                     </div>
+                <div className="points">
+                <div>Points:{this.state.points}</div>
                 </div>
-                <div className="infos2">
-                    <div className="posts">posts</div>
-                    <div className="services">services</div>
-                    <div className="points">{this.state.points}</div>
                 </div>
             </div>
         )

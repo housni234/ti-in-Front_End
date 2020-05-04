@@ -50,14 +50,14 @@ flex-direction: column;
 */
 
 /*request box input*/
-.box__big input[type="text"] {
-  width: 450px;
+.box__big textarea[type="text"] {
+  width: 500px;
   height: 120px;
   padding: 15px;
   border: 1px solid #dddddd;
   margin-bottom: 15px;
   box-sizing:border-box;
-  font-size:17px;
+  font-size:15px;
   margin-left: 10px;
   outline: none;
 }
@@ -73,6 +73,7 @@ flex-direction: column;
   line-height:1px;
   border-radius: 15px;
   margin-left: 440px;
+  outline: none;
 }
 
 
