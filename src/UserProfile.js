@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./userProfile.css";
-import meme from "./meme.jpg";
 import ProfileField from "./ProfileField"
 
 class UserProfile extends Component {
@@ -45,18 +44,6 @@ class UserProfile extends Component {
         });
     };
 
-    updatePoints = e => {
-        this.setState({
-            points: e.target.value
-        });
-    }
-
-    updateAverageRating = e => {
-        this.setState({
-            average_rating: e.target.value
-        });
-    }
-
     componentDidMount() {
         let userid = this.state.id;
         fetch(`http://localhost:5000/users/${userid}`)
@@ -85,12 +72,12 @@ class UserProfile extends Component {
                         <ProfileField value={name} onChange={this.updateName} isEditing={this.state.isInEditMode} />
                     </div>
                     <div>rating: {this.state.average_rating}</div>
-                    <div className="email">
-                        <ProfileField value={email} onChange={this.updateEmail} isEditing={this.state.isInEditMode} />
-                    </div>
                 <div className="points">
                 <div>Points:{this.state.points}</div>
                 </div>
+                    <div className="email">
+                        <ProfileField value={email} onChange={this.updateEmail} isEditing={this.state.isInEditMode} />
+                    </div>
                 </div>
             </div>
         )

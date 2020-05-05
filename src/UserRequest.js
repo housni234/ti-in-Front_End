@@ -45,7 +45,7 @@ class UserRequest extends Component {
                     <form id="submitForm" onSubmit={this.handleSubmit}>
                         <label >Submit your request here</label>
                         <br/>
-                   <textarea type="text" name="submit-inputText" placeholder="type here" onChange={this.handleInputChange} value={this.state.inputText} />
+                   <input type="text" name="submit-inputText" placeholder="type here" onChange={this.handleInputChange} value={this.state.inputText} />
                         
                         <br />
                         <button type="submit">Submit</button>
