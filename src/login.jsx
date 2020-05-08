@@ -27,7 +27,7 @@ export default class login extends Component {
     })
     .then(res => {
       if (res.status === 200) {
-        this.props.history.push('/');
+        this.props.history.push('/main');
         console.log('a user has signed in!')
 
       } else {

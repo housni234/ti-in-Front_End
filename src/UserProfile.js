@@ -7,7 +7,7 @@ class UserProfile extends Component {
         super()
 
         this.state = {
-            id: 3,
+            id: 2,
             name: "undefined user name",
             email: "undefined email",
             points: 0,
