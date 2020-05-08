@@ -9,32 +9,19 @@ class SentRequests extends Component {
         super()
         this.state = {
             requests: [
-                {
-                    id:1,
-                    username: "housni",
-                    start_date: 1984,
-                    end_date: 2020,
-                    content: "hello I need someone to walk my dog",
-                },
-                {
-                    id:2,
-                    username: "tom",
-                    start_date: 1988,
-                    end_date: 2020,
-                    content: "hello I need someone to walk my cat",
-                }
             ],
             editIndex: null
         };
     };
 
     componentDidMount() {
-        let userid = this.state.username;
-        fetch(`http://localhost:5000/services/${userid}`)
+        let receiver_id = this.state.requests.receiver_id;
+        fetch(`http://localhost:5000/services/4/content`)
             .then((response) => response.json())
             .then((responseJson) => {
-                const { receiver_id, content, start_date, end_date } = responseJson;
-                this.setState({ receiver_id, content, start_date, end_date })
+                console.log(responseJson);
+                this.setState({ requests: responseJson});
+                console.log(this.state)
             })
             .catch((error) => {
                 console.error(error);
@@ -42,16 +29,16 @@ class SentRequests extends Component {
     };
 
     changeEditMode = () => {
-        if (this.state.isInEditMode) {
-            const requestOptions = {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ content: this.state.content })
-            };
-            fetch('http://localhost:5000/services', requestOptions);
+   //     if (this.state.isInEditMode) {
+     //       const requestOptions = {
+       //         method: 'PUT',
+         //       headers: { 'Content-Type': 'application/json' },
+           //     body: JSON.stringify({ content: this.state.content })
+         //   };
+           // fetch('http://localhost:5000/services', requestOptions);
 
-        }
-        this.setState({ isInEditMode: !this.state.isInEditMode });
+       // }
+        //this.setState({ isInEditMode: !this.state.isInEditMode });
 
     };
 
