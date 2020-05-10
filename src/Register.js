@@ -44,8 +44,6 @@ render() {
     <div>
     <h1 className="logup_page">Sign up below</h1>
     <form onSubmit={this.onSubmit}>
-      {this.state.errorMessage && (
-        <h3 className="error"> {this.state.errorMessage} </h3>
       )}
       <input
       className="nameup"
