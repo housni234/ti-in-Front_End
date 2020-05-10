@@ -196,3 +196,49 @@ a {
   color:black;
   line-height:1px;
   border-radius: 15px;}
+
+  .logup-btn{ margin-left: 560px;
+    width: 10%;
+    height: 6px;
+    padding: 15px;
+    background-color: #3681cc;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #ffffff;
+    line-height:1px;
+    border-radius: 15px;
+}
+.logup_page{ margin-left: 500px;
+  font-size: 40px;
+  color:#3681cc;
+  line-height:1px;
+  border-radius: 15px;}
+
+.nameup { margin-left: 500px;
+  width: 20%;
+  height: 6px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height:1px;
+  border-radius: 15px;
+}
+
+.emailup { margin-left: 500px;
+  width: 20%;
+  height: 6px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height:1px;
+  border-radius: 15px;
+}
+.passwordup { margin-left: 500px;
+  width: 20%;
+  height: 6px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height:1px;
+  border-radius: 15px;
+}

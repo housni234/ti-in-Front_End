@@ -7,7 +7,8 @@ export default class login extends Component {
     super(props)
     this.state = {
       name : '',
-      password: ''
+      password: '',
+      errorMessage: ''
     };
   }
 
@@ -38,15 +39,12 @@ export default class login extends Component {
       }
     })
     .catch((error) => {
-      //console.log(error);
-      //this.setState({ errorMessage: error });
+      
       if (error.response.status === 404) {
         this.setState({ errorMessage: error.response.data });
       } else if (error.response.status === 401) {
         this.setState({ errorMessage: error.response.data });
-        // console.log("request", error.request);
       } else {
-        //console.log("Error", error.message);
         this.setState({ errorMessage: error });
       }
     });
@@ -89,9 +87,10 @@ export default class login extends Component {
         <button type="submit" className="login-btn">Login</button>
         <br />
         <br />
-
-        <button type="submit" className="signup-btn">Sign Up</button>
+        
       </form>
+      <button type="submit" className="signup-btn" onClick={() => this.props.history.push('/Register')}>Sign Up</button>
+
       </div>
     
     );
