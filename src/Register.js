@@ -28,28 +28,15 @@ export default class login extends Component {
         'Content-Type': 'application/json'
       }
     })
-    .then(res => {
-      if (res.status === 200) {
-        this.props.history.push('/main');
-        console.log('a user has signed up!')
-
-      } else {
-        const error = new Error(res.error);
-        throw error;
-      }
-    })
-    .catch((error) => {
-      
-      if (error.response.status === 404) {
-        this.setState({ errorMessage: error.response.data });
-      } else if (error.response.status === 401) {
-        this.setState({ errorMessage: error.response.data });
-      } else {
-        this.setState({ errorMessage: error });
-      }
+    .then((response) => response.json())
+.then(() => {
+  console.log('Success:');
+})
+    .catch(err => {
+      console.error(err);
+      alert('Error in please try again');
     });
-};
-
+  }
 
 render() {
   const { name, email, password } = this.state;
