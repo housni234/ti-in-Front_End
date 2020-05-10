@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "./index.css";
 
 
-export default class login extends Component {
+export default class Register extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -34,7 +34,7 @@ export default class login extends Component {
 })
     .catch(err => {
       console.error(err);
-      alert('Error in please try again');
+      alert('Error please try again');
     });
   }
 
