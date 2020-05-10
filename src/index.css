@@ -50,7 +50,7 @@ flex-direction: column;
 */
 
 /*request box input*/
-.box__big textarea[type="text"] {
+.box__big input[type="text"] {
   width: 500px;
   height: 120px;
   padding: 15px;
@@ -60,6 +60,7 @@ flex-direction: column;
   font-size:15px;
   margin-left: 10px;
   outline: none;
+  padding-bottom: 100px;
 }
 /*request box button*/
 .box__big button[type="submit"] {

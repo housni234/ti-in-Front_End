@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import UserProfile from "./UserProfile";
-import SentRequest from "./SentRequest";
+import SentRequest from "./SentRequests";
 
 function MyProfile() {
     return (
