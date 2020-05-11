@@ -28,10 +28,16 @@ export default class Register extends Component {
         'Content-Type': 'application/json'
       }
     })
-    .then((response) => response.json())
-.then(() => {
-  console.log('Success:');
-})
+    .then(res => {
+      if (res.status === 200) {
+        this.props.history.push('/main');
+        console.log('a user has signed up!')
+
+      } else {
+        const error = new Error(res.error);
+        throw error;
+      }
+    })
     .catch(err => {
       console.error(err);
       alert('Error please try again');
