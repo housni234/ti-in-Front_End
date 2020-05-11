@@ -11,8 +11,8 @@ class TieInBar extends Component {
           <br />
           <img
             src="TieIn.png"
-            width="50px"
-            height="50px"
+            width="45px"
+            height="45px"
             className="logo"
             alt="logo"
           />{"TieIn"}
