@@ -8,14 +8,14 @@ class TieInBar extends Component {
       <div className="container">
         <div className="sidebar tie-in base">
         <br />
-          <br />
           <img
             src="TieIn.png"
-            width="45px"
-            height="45px"
+            width="35px"
+            height="35px"
             className="logo"
             alt="logo"
-          />{"TieIn"}
+          />
+          {""}Tie_In{""}
           <br />
           <h1>Good Neighbour</h1>
           <div className="bar-container">
