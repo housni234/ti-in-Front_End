@@ -21,7 +21,7 @@ class TieInBar extends Component {
           <div className="bar-container">
             <div className="links-container">
               <Link to="/Profile">Profile</Link>
-            </div>s
+            </div>
           </div>
         </div>
       </div>
