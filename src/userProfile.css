@@ -30,7 +30,7 @@
     background-color: black;  
 }
 /*text inside my profile bar*/
-p{
+.bar-name p{
     text-align: center;
     vertical-align: middle;
     color: white;

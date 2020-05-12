@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./userProfile.css";
-
 import SentRequest from "./SentRequest";
 
 
@@ -8,8 +7,7 @@ class SentRequests extends Component {
     constructor() {
         super()
         this.state = {
-            requests: [
-            ],
+            requests: [],
             editIndex: null
         };
     };
@@ -19,9 +17,9 @@ class SentRequests extends Component {
         fetch(`http://localhost:5000/services/4/content`)
             .then((response) => response.json())
             .then((responseJson) => {
-                console.log(responseJson);
-                this.setState({ requests: responseJson});
-                console.log(this.state)
+                
+                this.setState({ requests: responseJson });
+                
             })
             .catch((error) => {
                 console.error(error);
@@ -29,16 +27,17 @@ class SentRequests extends Component {
     };
 
     changeEditMode = () => {
-   //     if (this.state.isInEditMode) {
-     //       const requestOptions = {
-       //         method: 'PUT',
-         //       headers: { 'Content-Type': 'application/json' },
-           //     body: JSON.stringify({ content: this.state.content })
-         //   };
-           // fetch('http://localhost:5000/services', requestOptions);
+        console.log()
+        if (this.state.isInEditMode) {
+            const requestOptions = {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ content: this.state.content })
+            };
+            fetch('http://localhost:5000/services/:receiver_id', requestOptions);
 
-       // }
-        //this.setState({ isInEditMode: !this.state.isInEditMode });
+        }
+        this.setState({ isInEditMode: !this.state.isInEditMode });
 
     };
 
@@ -49,30 +48,30 @@ class SentRequests extends Component {
         this.setState({ requests: requests });
     }
 
-    onDelete = (request) => {
-       // let serviceId = this.state.content
-       // const deleteOption = {
-         //   method: 'DELETE',
-           // headers: { 'Content-Type': 'application/json' },
-            //body: JSON.stringify({ content: this.state.content })
-       // };
-       // fetch(`http://localhost:5000/services/${serviceId}`, deleteOption);
+    // onDelete = (request) => {
+    //   let content = this.state.content
+    //  const deleteOption = {
+    //    method: 'DELETE',
+    //   headers: { 'Content-Type': 'application/json' },
+    //  body: JSON.stringify({ content: this.state.content })
+    //  };
+    // fetch(`http://localhost:5000/services/:id/content`, deleteOption);
 
-        const { requests } = this.state;
-        this.setState({ requests: requests.filter(r => r !== request) });
-    };
+    //const { requests } = this.state;
+    // this.setState({ requests: requests.filter(r => r !== request) });
+    // };
 
     render() {
         const { requests, editIndex } = this.state;
         return (
             <div className="sent-request">
-                <div className="sent-request-bar">
+                <div className="sent-request-bar bar-name">
                     <p>Sent Requests</p>
                 </div>
                 {
                     requests.map((request, index) => (
-                        <SentRequest 
-                            key={request.id} 
+                        <SentRequest
+                            key={request.id}
                             content={request.content}
                             onChange={this.updateContent}
                             isInEditMode={editIndex === index}
@@ -83,9 +82,9 @@ class SentRequests extends Component {
                                     this.setState({ editIndex: index })
                                 }
                             }}
-                            onDelete={() => this.onDelete(request)}
+                           // onDelete={() => this.onDelete(request)}
                         />
-                    ))    
+                    ))
                 }
             </div>
         );

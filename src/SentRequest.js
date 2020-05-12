@@ -9,7 +9,7 @@ function SentRequest(props)  {
 
         <div className="requests-btns">
             <button className="edit-btn" onClick={changeEditMode}>{isInEditMode ? "Save" : "Edit"}</button>
-            <button className="delete-btn" onClick={onDelete}>Delete</button>
+         {/*    <button className="delete-btn" onClick={onDelete}>Delete</button>*/}
         </div>
     </div>
 }
