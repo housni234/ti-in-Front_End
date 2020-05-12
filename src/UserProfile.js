@@ -63,7 +63,7 @@ class UserProfile extends Component {
         return (
 
             <div className="userProfile">
-                <div className="myProfile-bar">
+                <div className="myProfile-bar bar-name">
                     <p>My Profile</p>
                 </div>
                 <button className="edit-save-btn" onClick={this.changeEditMode}>{this.state.isInEditMode ? "Save" : "Edit"}</button>
