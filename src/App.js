@@ -5,6 +5,8 @@ import Profile from "./Profile";
 import "./Navbar"
 import { Route, Switch } from 'react-router-dom';
 import Login from './login';
+import Register from './Register';
+
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
         <Route path="/" component={Login} exact/>
        <Route path="/Main" component={Main} />
         <Route path="/Profile" component ={Profile} />
+        <Route path="/Register" component ={Register} />
       </Switch>
     </div>
   );

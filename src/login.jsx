@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import "./index.css";
+
 
 export default class login extends Component {
   constructor(props) {
     super(props)
     this.state = {
       name : '',
-      password: ''
+      password: '',
+      errorMessage: ''
     };
   }
 
@@ -35,34 +38,62 @@ export default class login extends Component {
         throw error;
       }
     })
-    .catch(err => {
-      console.error(err);
-      alert('Error loging in please try again');
+    .catch((error) => {
+      
+      if (error.response.status === 404) {
+        this.setState({ errorMessage: error.response.data });
+      } else if (error.response.status === 401) {
+        this.setState({ errorMessage: error.response.data });
+      } else {
+        this.setState({ errorMessage: error });
+      }
     });
-  }
+};
+
 
   render() {
+    const { email, password } = this.state;
     return (
+      <div>
+      <h1 className="login_page">Login below</h1>
       <form onSubmit={this.onSubmit}>
-        <h1>Login Below!</h1>
+        {this.state.errorMessage && (
+          <h3 className="error"> {this.state.errorMessage} </h3>
+        )}
         <input
-          type="name"
-          name="name"
-          placeholder="name"
-          value={this.state.name}
+        className="email"
+          name="email"
+          id="EmailLogin"
+          placeholder="email"
+          required="required"
+          type="email"
+          value={email}
           onChange={this.handleInputChange}
-          required
-        />
+        ></input>
+        <br />
         <input
+        
+        className="password"
           type="password"
+          id="yourLoginPassword"
+          placeholder="password"
+          required="required"
           name="password"
-          placeholder="Enter password"
-          value={this.state.password}
+          value={password}
           onChange={this.handleInputChange}
-          required
-        />
-        <input type="submit" value="Submit"/>
+        ></input>
+        <br />
+        
+        <button type="submit" className="login-btn">Login</button>
+        <br />
+        <br />
+        
       </form>
+      <button type="submit" className="signup-btn" onClick={() => this.props.history.push('/Register')}>Sign Up</button>
+
+      </div>
+    
     );
   }
 }
+
