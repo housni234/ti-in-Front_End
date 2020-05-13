@@ -37,15 +37,6 @@
     margin: auto; 
     font-size: medium;   
 }
-/*profile image
-img {
-    border: 1px solid black;
-    border-radius: 4px;
-    padding: 5px;
-    width: 100px;
-    height: 100px;
-    margin-left: 40px;
-  }*/
 
 /*profile infos*/
   .infos{
@@ -106,7 +97,7 @@ input {
 
 .requests-box{
     background-color: white;
-    border: ;
+    margin: 6px;
     width: 500px;
     height: 100px;
     margin-left: 35px;
@@ -129,7 +120,7 @@ input {
     border-radius: 15px;
 }
 
-.delete-btn {  
+/*.delete-btn {  
     width: 70px;
     height: 25px;
     background-color: black;
@@ -137,4 +128,4 @@ input {
     color: #ffffff;
     line-height:1px;
     border-radius: 15px;
-}
+}*/

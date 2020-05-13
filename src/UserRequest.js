@@ -8,40 +8,34 @@ class UserRequest extends Component {
         this.state = {
             inputText: "",
             savedTexts: [],
-            userId: 1,
             name: "name",
-            receiver_id: 2,
-            contentList: ["testcontent"]
+            contentList: []
 
         }
     };
 
     componentDidMount() {
-       // let content = this.state.content;
         fetch(`http://localhost:5000/content`)
             .then((response) => response.json())
             .then((responseJson) => {
-                console.log(responseJson)
-                this.setState({ contentList:responseJson })
-                console.log(this.state.contentList)
+                this.setState({ contentList: responseJson })
             })
             .catch((error) => {
                 console.error(error);
             });
+        // let userId = this.state.id;
+        // fetch(`http://localhost:5000/users/name`)
+        // .then((response) => response.json())
+        //  .then((responseJson) => {
+        //  const { name } = responseJson;
+        //  this.setState({ name })
+        // })
+        //  .catch((error) => {
+        //   console.error(error);
+        // });
     };
 
-    //  componentDidMount() {
-    //    let userId = this.state.id;
-    //  fetch(`http://localhost:5000/users/${userId}`)
-    //    .then((response) => response.json())
-    //       .then((responseJson) => {
-    //         const { name } = responseJson;
-    //       this.setState({ name })
-    // })
-    //   .catch((error) => {
-    //      console.error(error);
-    //  });
-    //}
+
 
     handleSubmit = (event) => {
         event.preventDefault()
@@ -53,7 +47,15 @@ class UserRequest extends Component {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ content: this.state.inputText }),
+            body: JSON.stringify({ 
+                content: this.state.inputText,
+                points: 20,
+                comment: "this a",
+                receiver_id: 1,
+                state: "requested",
+                start_date: "2020-02-03",
+                end_date: "2020-02-04"
+             }),
         })
             .then((response) => response.json())
             .then((savedText) => {
@@ -93,19 +95,21 @@ class UserRequest extends Component {
                             </div>
                         )
                     })}
-                    <div
-                        className="savedRequest">
-                        {name}<br />
-                       {contentList.map(contentObject => {
-                           return (
-                           <p>{contentObject.content}</p>
-                           )
-                       })} <br />
-                        <form className="tie-in-btn"
-                            method="post"
-                            action="mailto:youremail@youremail.com" >
-                            <input type="submit" value="Tie In" />
-                        </form></div>
+                    <div>
+                        {contentList.map(contentObject => {
+                            return (
+                                <div className="savedRequest">
+                                {name}<br />
+                                    <p>{contentObject.content}</p>
+                                    <form className="tie-in-btn"
+                                        method="post"
+                                        action="mailto:youremail@youremail.com" >
+                                        <input type="submit" value="Tie In" />
+                                    </form>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
 

@@ -17,7 +17,7 @@ class TieInBar extends Component {
           />
           {""}Tie_In{""}
           <br />
-          <h1>Good Neighbour</h1>
+          <h1>Good</h1><h1> Neighbour</h1>
           <div className="bar-container">
             <div className="links-container">
               <Link to="/Profile">Profile</Link>
