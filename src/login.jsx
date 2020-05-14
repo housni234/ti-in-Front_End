@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import "./index.css";
 
+
+
 export default class login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      email: "",
       password: "",
       errorMessage: "",
     };
@@ -29,7 +31,13 @@ export default class login extends Component {
     })
       .then((res) => {
         if (res.status === 200) {
-          this.props.history.push("/main");
+          
+          this.props.history.push({
+            pathname: '/main',
+            search: '?query=id',
+            state: { detail: 'id' }
+        });
+
         } else {
           const error = new Error(res.error);
           throw error;
@@ -48,6 +56,7 @@ export default class login extends Component {
 
   render() {
     const { email, password } = this.state;
+  
     return (
       <div>
         <h1 className="login_page">Login below</h1>
