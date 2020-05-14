@@ -7,22 +7,12 @@ class UserRequest extends Component {
         super();
         this.state = {
             inputText: "",
-            savedTexts: [],
-            name: "name",
             contentList: []
-
-        }
-    };
+        };
+    }
 
     componentDidMount() {
-        fetch(`http://localhost:5000/content/name`)
-            .then((response) => response.json())
-            .then((responseJson) => {
-                this.setState({ contentList: responseJson })
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        this.fetchContent();
         // let userId = this.state.id;
         // fetch(`http://localhost:5000/users/name`)
         // .then((response) => response.json())
@@ -35,32 +25,36 @@ class UserRequest extends Component {
         // });
     };
 
-
+    fetchContent = () => {
+        fetch(`http://localhost:5000/content/name`)
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({ contentList: responseJson })
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
 
     handleSubmit = (event) => {
-        event.preventDefault()
-        this.setState({
-            savedTexts: this.state.savedTexts.concat([this.state.inputText])
-        })
+        event.preventDefault();
+
         fetch('http://localhost:5000/services', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ 
+            body: JSON.stringify({
                 content: this.state.inputText,
                 points: 20,
                 comment: "this a",
-                receiver_id: 1,
+                receiver_id: this.props.userId,
                 state: "requested",
                 start_date: "2020-02-03",
                 end_date: "2020-02-04"
              }),
         })
-            .then((response) => response.json())
-            .then((savedText) => {
-                console.log('Success:', savedText);
-            })
+            .then(() => this.fetchContent())
             .catch((error) => {
                 console.error('Error:', error);
             });
@@ -87,36 +81,24 @@ class UserRequest extends Component {
                     </form>
                 </div>
                 <div>
-                    {this.state.savedTexts.map(savedText => {
+                    {contentList.map(contentObject => {
                         return (
                             <div className="savedRequest">
-                                {name}<br />
-                                {savedText}
+                                <p>{contentObject.name}</p>
+                                <p>{contentObject.content}</p>
+                                <form className="tie-in-btn"
+                                    method="post"
+                                    action={`mailto:${contentObject.email}`}>
+                                    <input type="submit" value="Tie In" />
+                                </form>
                             </div>
                         )
                     })}
-                    <div>
-                        {contentList.map(contentObject => {
-                            return (
-                                <div className="savedRequest">
-                                {name}<br />
-                                    <p>{contentObject.content}</p>
-                                    <form className="tie-in-btn"
-                                        method="post"
-                                        action="mailto:youremail@youremail.com" >
-                                        <input type="submit" value="Tie In" />
-                                    </form>
-                                </div>
-                            )
-                        })}
-                    </div>
                 </div>
             </div>
-
         )
     }
-
 };
 
 
-export default UserRequest; 
+export default UserRequest;

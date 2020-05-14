@@ -2,10 +2,10 @@ import React, {Component} from "react";
 import UserProfile from "./UserProfile";
 import SentRequest from "./SentRequests";
 
-function MyProfile() {
+function MyProfile({ userId }) {
     return (
         <div className="profile-component">
-            <UserProfile/>
+            <UserProfile userid={userId} />
             <SentRequest/>
         </div>
     )

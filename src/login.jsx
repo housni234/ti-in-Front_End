@@ -30,25 +30,18 @@ export default class login extends Component {
       },
     })
       .then((res) => {
-        if (res.status === 200) {
-          
-          this.props.history.push({
-            pathname: '/main',
-            search: '?query=id',
-            state: { detail: 'id' }
-        });
-
-        } else {
+        if (res.status !== 200) {
           const error = new Error(res.error);
           throw error;
         }
+        return res;
       })
-
-      .then((response) => response.json())
-      .then((savedText) => {
-        console.log("Success:", savedText);
+      .then(res => res.json())
+      .then(res => {
+        this.props.history.push({
+          pathname: `/main/${res.id}/${res.name}`,
+        });
       })
-
       .catch((error) => {
         console.error("Error:", error);
       });
@@ -56,7 +49,7 @@ export default class login extends Component {
 
   render() {
     const { email, password } = this.state;
-  
+
     return (
       <div>
         <h1 className="login_page">Login below</h1>

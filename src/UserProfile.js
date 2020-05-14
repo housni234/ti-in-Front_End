@@ -7,7 +7,6 @@ class UserProfile extends Component {
         super()
 
         this.state = {
-            id: 2,
             name: "undefined user name",
             email: "undefined email",
             points: 0,
@@ -45,7 +44,7 @@ class UserProfile extends Component {
     };
 
     componentDidMount() {
-        let userid = this.state.id;
+        let { userid } = this.props;
         fetch(`http://localhost:5000/users/${userid}`)
             .then((response) => response.json())
             .then((responseJson) => {

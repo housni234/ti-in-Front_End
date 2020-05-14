@@ -3,9 +3,8 @@ import  MyProfile from "./MyProfile"
 
 function Profile() {
     return (
-        <>
         <MyProfile />
-        </>
+
     )
 }
 
