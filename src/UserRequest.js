@@ -15,7 +15,7 @@ class UserRequest extends Component {
     };
 
     componentDidMount() {
-        fetch(`http://localhost:5000/content`)
+        fetch(`http://localhost:5000/content/name`)
             .then((response) => response.json())
             .then((responseJson) => {
                 this.setState({ contentList: responseJson })

@@ -19,7 +19,7 @@ flex-direction: column;
 .base {
   background-color: #fff;
   padding: 15px;
-  height: 700px;
+  height: 100%;
 }
 
 /*search bar layout

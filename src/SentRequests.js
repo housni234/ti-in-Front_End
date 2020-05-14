@@ -13,7 +13,7 @@ class SentRequests extends Component {
     };
 
     componentDidMount() {
-        let receiver_id = this.state.requests.receiver_id;
+      //  let receiver_id = this.state.requests.receiver_id;
         fetch(`http://localhost:5000/services/4/content`)
             .then((response) => response.json())
             .then((responseJson) => {
@@ -81,6 +81,7 @@ class SentRequests extends Component {
                                 } else {
                                     this.setState({ editIndex: index })
                                 }
+                                
                             }}
                            // onDelete={() => this.onDelete(request)}
                         />
