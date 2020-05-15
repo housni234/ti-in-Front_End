@@ -8,7 +8,7 @@ function TieInBar({ profileLink }) {
       <div className="sidebar tie-in base">
         <br />
         <img
-          src="TieIn.png"
+          src="https://lh3.googleusercontent.com/proxy/ufzV0ryl2xgcaB1VID7OTdSp91Ic2ROe0wvM-BUr_WaYLiQw739abu2BhwTxx90QbFwmXaR_jyDB4MJOJN5RBjVk16R8lh8aQLynAu2zBU4BnrfcVf3b7vAoPlhCxGjh4ArP2bkllFCzTXjjtdaiJjjy0lQhgpqCwFJdT5W5ZnDO9w"
           width="35px"
           height="35px"
           className="logo"
@@ -16,7 +16,7 @@ function TieInBar({ profileLink }) {
         />
         Tie_In
         <br />
-        <h1>Good</h1><h1> Neighbour</h1>
+        <h1>Good  Neighbour</h1>
         <div className="bar-container">
           <div className="links-container">
             <Link to={profileLink}>Profile</Link>

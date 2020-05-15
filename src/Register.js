@@ -30,7 +30,7 @@ export default class Register extends Component {
     })
     .then(res => {
       if (res.status === 200) {
-        this.props.history.push('/login');
+        this.props.history.push('/');
         console.log('a user has signed up!')
 
       } else {
